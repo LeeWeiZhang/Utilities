@@ -2,7 +2,6 @@
 
 namespace WeiZhang\Utilities\Tests;
 
-
 use PHPUnit\Framework\TestCase;
 use WeiZhang\Utilities\DeviceCheck;
 
@@ -47,7 +46,7 @@ class DeviceCheckTest extends TestCase
         ]);
         $deviceType = $deviceCheck->deviceType();
 
-        $this->assertEquals($deviceType, 'mobile');    
+        $this->assertEquals($deviceType, 'mobile');
     }
 
     /** @test */

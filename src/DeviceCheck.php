@@ -2,7 +2,6 @@
 
 namespace WeiZhang\Utilities;
 
-
 class DeviceCheck
 {
     /** @serverVar array */
@@ -42,7 +41,7 @@ class DeviceCheck
     
         if ($tablet_browser > 0) {
             return true;
-        } else if ($mobile_browser > 0) {
+        } elseif ($mobile_browser > 0) {
             return true;
         } else {
             return false;
@@ -59,7 +58,7 @@ class DeviceCheck
         
         if ($tablet_browser > 0) {
             return "tablet";
-        } else if ($mobile_browser > 0) {
+        } elseif ($mobile_browser > 0) {
             return "mobile";
         } else {
             return "desktop";
@@ -92,7 +91,7 @@ class DeviceCheck
         }
     
         if (
-            (strpos(strtolower($this->serverVar['HTTP_ACCEPT']),'application/vnd.wap.xhtml+xml') > 0) ||
+            (strpos(strtolower($this->serverVar['HTTP_ACCEPT']), 'application/vnd.wap.xhtml+xml') > 0) ||
             ((isset($this->serverVar['HTTP_X_WAP_PROFILE']) or isset($this->serverVar['HTTP_PROFILE'])))
         ) {
             $mobile_browser++;
@@ -110,16 +109,16 @@ class DeviceCheck
             'tosh','tsm-','upg1','upsi','vk-v','voda','wap-','wapa','wapi','wapp',
             'wapr','webc','winw','winw','xda ','xda-');
     
-        if (in_array($mobile_ua,$mobile_agents)) {
+        if (in_array($mobile_ua, $mobile_agents)) {
             $mobile_browser++;
         }
     
-        if (strpos(strtolower($this->serverVar['HTTP_USER_AGENT']),'opera mini') > 0) {
+        if (strpos(strtolower($this->serverVar['HTTP_USER_AGENT']), 'opera mini') > 0) {
             $mobile_browser++;
             //Check for tablets on opera mini alternative headers
             if (isset($this->serverVar['HTTP_X_OPERAMINI_PHONE_UA'])) {
                 $phoneUA = $this->serverVar['HTTP_X_OPERAMINI_PHONE_UA'];
-            } elseif(isset($this->serverVar['HTTP_DEVICE_STOCK_UA'])) {
+            } elseif (isset($this->serverVar['HTTP_DEVICE_STOCK_UA'])) {
                 $phoneUA = $this->serverVar['HTTP_DEVICE_STOCK_UA'];
             } else {
                 $phoneUA = "";
@@ -133,6 +132,4 @@ class DeviceCheck
         
         return [$mobile_browser, $tablet_browser];
     }
-    
-    
 }
