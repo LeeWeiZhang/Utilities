@@ -14,7 +14,8 @@
         "php": "^7.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.0"
+        "phpunit/phpunit": "^8.0",
+        "friendsofphp/php-cs-fixer": "^2.14"
     },
     "autoload": {
         "psr-4": {
@@ -25,5 +26,9 @@
         "psr-4": {
             "WeiZhang\\Utilities\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "fix-style": "vendor/bin/php-cs-fixer fix src && vendor/bin/php-cs-fixer fix tests"
     }
 }
