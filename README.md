@@ -19,3 +19,11 @@ $deviceCheck->setServerVar([
 ]);
 $deviceType = $deviceCheck->deviceType();
 ```
+
+- getDownloadSize
+`get request download size`
+```
+$file = new Requests();
+$size = $file->getDownloadSize(['https://filepath.com']);
+$size
+```
