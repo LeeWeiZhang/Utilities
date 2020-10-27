@@ -24,6 +24,5 @@ $deviceType = $deviceCheck->deviceType();
 `get request download size`
 ```
 $file = new Requests();
-$size = $file->getDownloadSize(['https://filepath.com']);
-$size
+$size = $file->getDownloadSize(['https://filepath.com']); // size returns is in bytes
 ```
